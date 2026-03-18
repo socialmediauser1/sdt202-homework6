@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
-public class MergeSortClient {
+public class client {
     private static final int[] SIZES = {
         1000, 5000, 10000, 50000, 100000, 500000, 1000000
     };
@@ -19,8 +19,8 @@ public class MergeSortClient {
         Random rand = new Random(42);
 
         for (int i = 0; i < SIZES.length; i++) {
-            tdMs[i] = measureMs(new TopDownMergeSort(), SIZES[i], rand);
-            buMs[i] = measureMs(new BottomUpMergeSort(), SIZES[i], rand);
+            tdMs[i] = measureMs(new topdown(), SIZES[i], rand);
+            buMs[i] = measureMs(new bottomup(), SIZES[i], rand);
             System.out.printf("%-14d %16.2f %16.2f%n", SIZES[i], tdMs[i], buMs[i]);
         }
 
@@ -41,9 +41,9 @@ public class MergeSortClient {
     }
 
     private static void sortWith(Object sorter, int[] a) {
-        if (sorter instanceof TopDownMergeSort td) {
+        if (sorter instanceof topdown td) {
             td.sort(a);
-        } else if (sorter instanceof BottomUpMergeSort bu) {
+        } else if (sorter instanceof bottomup bu) {
             bu.sort(a);
         }
     }

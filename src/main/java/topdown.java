@@ -1,4 +1,4 @@
-public class TopDownMergeSort {
+public class topdown {
     private int[] aux;
 
     public void sort(int[] a) {
